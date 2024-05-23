@@ -7,35 +7,42 @@ import RNPickerSelect from 'react-native-picker-select';
 
 const Pantalla2 = ({ navigation }) => {
     const creador = creadorData[0];
-    const irPantalla1 =  () => {
+    const irPantalla1 = () => {
         navigation.navigate('Pantalla1');
     };
-    const irEjercicio =  () => {
+    const irEjercicio = () => {
         navigation.navigate('Ejercicio');
     };
 
     const irIndicaciones = () => {
         navigation.navigate('Indicaciones');
     };
+    const irEjercicioCLase = () => {
+        navigation.navigate('Claseejercicio');
+    };
 
-    const opciones =(opcion)=>{
+    const opciones = (opcion) => {
         switch (opcion) {
             case 1:
-              // Código a ejecutar si opcion es igual a 1
-              navigation.navigate('Pantalla1');
-              break;
+                // Código a ejecutar si opcion es igual a 1
+                navigation.navigate('Pantalla1');
+                break;
             case 2:
-              // Código a ejecutar si opcion es igual a 2
-              navigation.navigate('Indicaciones');
-              break;
-              case 3:
+                // Código a ejecutar si opcion es igual a 2
+                navigation.navigate('Indicaciones');
+                break;
+            case 3:
                 // Código a ejecutar si opcion es igual a 2
                 navigation.navigate('Ejercicio');
                 break;
+            case 4:
+                // Código a ejecutar si opcion es igual a 2
+                navigation.navigate('Claseejercicio');
+                break;
             // Puedes añadir más casos según sea necesario
             default:
-              // Código a ejecutar si ninguno de los casos anteriores coincide con el valor de opcion
-          }
+            // Código a ejecutar si ninguno de los casos anteriores coincide con el valor de opcion
+        }
 
     }
 
@@ -48,25 +55,26 @@ const Pantalla2 = ({ navigation }) => {
                     <Text style={styles.title}>Creador: {creador.name}</Text>
                     <Text style={styles.title}>Descripción del Ejemplo:</Text>
                     <Text style={styles.description}>{creador.desc}, utilizando las siguientes
-                    dependencias:  {'\n'}
+                        dependencias:  {'\n'}
 
-        <Text style={styles.lista}>react-native-picker-select    {'\n'} </Text>            
-        <Text style={styles.lista}>@react-navigation/native-stack      {'\n'} </Text>
-   
-        <Text style={styles.lista}>@react-navigation/native  </Text> </Text>
+                        <Text style={styles.lista}>react-native-picker-select    {'\n'} </Text>
+                        <Text style={styles.lista}>@react-navigation/native-stack      {'\n'} </Text>
+
+                        <Text style={styles.lista}>@react-navigation/native  </Text> </Text>
                 </View>
 
 
                 <RNPickerSelect
-                 onValueChange={(value) => opciones(value)}
-                 placeholder={{ label: 'Selecciona una pantalla...', value: null }} // Cambia el valor del placeholder aquí
-                 items={[
-                   { label: 'Regresar a Inicio', value: 1 },
-                   { label: 'Trabajo en Clase', value: 2 },
-                   { label: 'Perfil 3', value: 3 },
-                 ]}
+                    onValueChange={(value) => opciones(value)}
+                    placeholder={{ label: 'Selecciona una pantalla...', value: null }} // Cambia el valor del placeholder aquí
+                    items={[
+                        { label: 'Regresar a Inicio', value: 1 },
+                        { label: 'Trabajo en Clase', value: 2 },
+                        { label: 'Perfil 3', value: 3 },
+                        { label: 'Ejercicio de clase', value: 4 },
+                    ]}
                 />
-       </View>
+            </View>
         </View>
     );
 };
